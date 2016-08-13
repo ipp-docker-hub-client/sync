@@ -1,5 +1,5 @@
 {
-  "device_name": "DockerSync on MYHOSTNAME (DOCKERID)",
+  "device_name": "DockerSync on HOSTNAME (DOCKERID)",
   "listening_port" : 55555,
   "storage_path" : "/var/btsync/",
   "pid_file" : "/var/btsync/btsync.pid",

@@ -16,8 +16,8 @@
   "shared_folders" :
   [
     {
-      "secret" : "120e9b5b8fa2177fc07f59dc3bb387f7",
-      "dir" : "/data",
+      "secret" : "AZXJGO437P644M6JWC6P3NA3NZFXM4F4X",
+      "dir" : "/data/test",
       "use_relay_server" : true,
       "use_tracker" : true,
       "use_dht" : false,

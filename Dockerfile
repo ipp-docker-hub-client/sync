@@ -10,7 +10,7 @@ RUN wget -qO - http://linux-packages.getsync.com/btsync/key.asc | apt-key add -
 RUN apt-get update; apt-get install -q -y btsync
 RUN apt-get -q -y clean
 
-ADD sync.conf /var/btsync/sync.conf
+ADD sync.cnf /var/btsync/sync.conf
 RUN /usr/bin/btsync --foobar | grep "BitTorrent Sync"
 
 WORKDIR /var/btsync/

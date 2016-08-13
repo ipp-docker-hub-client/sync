@@ -17,7 +17,7 @@
   [
     {
       "secret" : "AZXJGO437P644M6JWC6P3NA3NZFXM4F4X",
-      "dir" : "/data/test",
+      "dir" : "/data",
       "use_relay_server" : true,
       "use_tracker" : true,
       "use_dht" : false,

@@ -15,7 +15,7 @@ RUN /usr/bin/btsync --foobar | grep "BitTorrent Sync"
 
 WORKDIR /var/btsync/
 RUN sed -i "s/HOSTNAME/$(DOCKERCLOUD_CONTAINER_HOSTNAME)/g;s/DOCKERID/$(DOCKERCLOUD_CONTAINER_FQDN)/g;" sync.conf
-RUN /usr/bin/btsync --config sync.conf --nodaemon
+RUN timeout -sHUP 10s /usr/bin/btsync --config sync.conf --nodaemon
 
 ENTRYPOINT ["btsync"]
 CMD ["--config", "sync.conf", "--nodaemon"]

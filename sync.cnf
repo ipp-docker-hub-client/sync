@@ -7,16 +7,22 @@
   "use_upnp" : false,
   "download_limit" : 0,
   "upload_limit" : 0,
+  "webui" :
+  {
+    "listen" : "0.0.0.0:4444",
+    "login" : "admin",
+    "password" : "7ea7f730652d24"
+  }
   "shared_folders" :
   [
     {
-      "secret" : "1a63d8657ee65378cc209869b23fa391",
+      "secret" : "120e9b5b8fa2177fc07f59dc3bb387f7",
       "dir" : "/data",
       "use_relay_server" : true,
       "use_tracker" : true,
       "use_dht" : false,
       "search_lan" : true,
-      "use_sync_trash" : false
+      "use_sync_trash" : true
     }
   ]
 }

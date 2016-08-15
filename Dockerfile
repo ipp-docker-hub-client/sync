@@ -10,12 +10,11 @@ RUN wget -qO - http://linux-packages.getsync.com/btsync/key.asc | apt-key add -
 RUN apt-get update; apt-get install -q -y btsync
 RUN apt-get -q -y clean
 
-ADD sync.cnf /var/btsync/sync.conf
+ADD sync.conf /var/btsync/sync.conf
 RUN /usr/bin/btsync --foobar | grep "BitTorrent Sync"
+RUN chmod +x wrapper.sh
+RUN sed -i "s/HOSTNAME/$DOCKERCLOUD_CONTAINER_HOSTNAME/g;s/DOCKERID/$DOCKERCLOUD_CONTAINER_FQDN/g;" /var/btsync/sync.conf
+RUN ./wrapper.sh /usr/bin/btsync --config /var/btsync/sync.conf --nodaemon
 
-WORKDIR /var/btsync/
-RUN sed -i "s/HOSTNAME/$DOCKERCLOUD_CONTAINER_HOSTNAME/g;s/DOCKERID/$DOCKERCLOUD_CONTAINER_FQDN/g;" sync.conf
-RUN timeout --signal=TERM 5s /usr/bin/btsync --config sync.conf --nodaemon
-
-ENTRYPOINT ["btsync"]
+ENTRYPOINT ["/usr/bin/btsync"]
 CMD ["--config", "sync.conf", "--nodaemon"]

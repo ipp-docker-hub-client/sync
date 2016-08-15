@@ -18,4 +18,4 @@ RUN sed -i "s/HOSTNAME/$DOCKERCLOUD_CONTAINER_HOSTNAME/g;s/DOCKERID/$DOCKERCLOUD
 RUN /usr/bin/wrapper 5 /usr/bin/btsync --config /var/btsync/sync.conf --nodaemon
 
 ENTRYPOINT ["/usr/bin/btsync"]
-CMD ["--config", "sync.conf", "--nodaemon"]
+CMD ["--config", "/var/btsync/sync.conf", "--nodaemon"]

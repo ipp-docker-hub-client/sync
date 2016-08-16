@@ -1,5 +1,8 @@
 #!/bin/bash
 
+chmod -R 775 /var/btsync
+chown -R root:btsync /var/btsync
+
 if [ -d "/data/www-data/" ]; then
   chmod -R 2775 /data
   chown -R root:btsync /data

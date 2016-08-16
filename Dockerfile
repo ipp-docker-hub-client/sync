@@ -16,5 +16,4 @@ RUN /usr/bin/btsync --help | grep "BitTorrent Sync" #log version info
 RUN sed -i "s/HOSTNAME/$DOCKERCLOUD_CONTAINER_HOSTNAME/g;s/DOCKERID/$DOCKERCLOUD_CONTAINER_FQDN/g;" /var/btsync/sync.conf
 RUN bash wrapper.sh 5 /usr/bin/btsync --config /var/btsync/sync.conf --nodaemon
 
-USER btsync
 ENTRYPOINT ["/var/btsync/start.sh"]

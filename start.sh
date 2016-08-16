@@ -7,10 +7,10 @@ if [ -d "/data/www-data/" ]; then
   chmod -R 2775 /data
   chown -R root:btsync /data
 
-  chown -R root:www-data /data/www-data/
+  chown -R 0:33 www-data/
   usermod -a -G www-data btsync
 
-  chown -R root:mysql /data/mysql/
+  chown -R 0:105 /data/mysql/
   usermod -a -G mysql btsync
 fi
 

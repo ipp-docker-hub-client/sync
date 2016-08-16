@@ -17,5 +17,8 @@ RUN chmod +x /usr/bin/wrapper
 RUN sed -i "s/HOSTNAME/$DOCKERCLOUD_CONTAINER_HOSTNAME/g;s/DOCKERID/$DOCKERCLOUD_CONTAINER_FQDN/g;" /var/btsync/sync.conf
 RUN /usr/bin/wrapper 5 /usr/bin/btsync --config /var/btsync/sync.conf --nodaemon
 
+RUN chown -R :btsync /data
+RUN chmod -R 775 /data
+USER btsync
 ENTRYPOINT ["/usr/bin/btsync"]
-CMD ["--config", "/var/btsync/sync.conf", "--nodaemon"]
+CMD ["--config", "/var/btsync/sync.conf"]

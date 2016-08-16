@@ -1,3 +1,5 @@
+#!/bin/bash
+
 chmod 2775 /data
 chown root:btsync /data
 
@@ -7,4 +9,7 @@ usermod -a -G www-data btsync
 chown root:mysql /data/mysql/
 usermod -a -G mysql btsync
 
-/usr/bin/btsync --config /var/btsync/sync.conf
+start="/usr/bin/btsync --config /var/btsync/sync.conf"
+su -c "$start" -s /bin/sh btsync
+
+

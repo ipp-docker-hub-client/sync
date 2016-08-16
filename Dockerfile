@@ -14,6 +14,7 @@ RUN apt-get remove -q -y git wget; apt-get -q -y clean
 
 RUN /usr/bin/btsync --help | grep "BitTorrent Sync" #log version info
 RUN sed -i "s/HOSTNAME/$DOCKERCLOUD_CONTAINER_HOSTNAME/g;s/DOCKERID/$DOCKERCLOUD_CONTAINER_FQDN/g;" /var/btsync/sync.conf
-RUN bash wrapper.sh 5 /usr/bin/btsync --config /var/btsync/sync.conf --nodaemon
+RUN bash wrapper.sh 5 /var/btsync/start.sh --config /var/btsync/sync.conf --nodaemon
 
+RUN chmod +x /var/btsync/start.sh
 ENTRYPOINT ["/var/btsync/start.sh"]

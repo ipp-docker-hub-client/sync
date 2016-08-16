@@ -14,5 +14,7 @@ if [ -d "/data/www-data/" ]; then
   usermod -a -G mysql btsync
 fi
 
-start="/usr/bin/btsync --config /var/btsync/sync.conf"
-su -c "$start" -s /bin/sh btsync
+#start="/usr/bin/btsync --config /var/btsync/sync.conf"
+#su -c "$start" -s /bin/sh btsync
+
+bash /usr/bin/btsync --config /var/btsync/sync.conf
